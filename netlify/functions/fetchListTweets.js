@@ -18,14 +18,20 @@ export default async (req, context) => {
   }
 
   try {
-    const res = await rettiwt.tweet.list(tweetListId);
-    const enrichedTweets = await Promise.all(res.list.map(async (tweet) => {
-      if (tweet.quoted !== undefined) {
+  const res = await rettiwt.tweet.list(tweetListId);
+  const enrichedTweets = await Promise.all(res.list.map(async (tweet) => {
+  if (tweet.quoted !== undefined) {
+      try { 
         const quotedTweetDetails = await rettiwt.tweet.details(tweet.quoted);
-        tweet.quoted = quotedTweetDetails;
-      }
-      return tweet;
-    }));
+    tweet.quoted = quotedTweetDetails;
+    //console.log(quotedTweetDetails);
+    }
+    catch(err){
+      console.error("Error fetching quoted tweet:", tweet.quoted);
+    }
+  }
+    return tweet;
+  }));
 
     return new Response(JSON.stringify(enrichedTweets), {
       headers: { 'Content-Type': 'application/json' },
