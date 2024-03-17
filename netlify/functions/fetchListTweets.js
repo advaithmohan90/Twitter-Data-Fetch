@@ -8,7 +8,7 @@ export default async (req, context) => {
   const tweetListId = url.searchParams.get('tweetListId');
   const api_key = url.searchParams.get('apiKey');
 
-  Ensure to use environment variables in production
+  //Ensure to use environment variables in production
   const rettiwt = new Rettiwt({ apiKey: api_key });
 
   if (!tweetListId) {
