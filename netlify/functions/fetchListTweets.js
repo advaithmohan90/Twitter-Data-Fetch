@@ -1,7 +1,6 @@
 import { Rettiwt } from 'rettiwt-api';
 
 export default async (req, context) => {
-  const API_KEY = 'a2R0PUNqRHBWb0c2bDVOTnJXNkxYUnBGWmpFZ1R6YXdWb0VXM2NydUVrOXE7dHdpZD0idT0xNzY4NzI5NDA2ODQxNzY5OTg1IjtjdDA9ZjNjNjNkN2RmNjY1MGU1MWZhMmI0ODE2MTg2YTRhMzM7YXV0aF90b2tlbj00NmFjZWQ5NjQ4YzA4YTliY2UxNDVkNGRjYTFjMzc3ZTYwNWFjOGI1Ow=='; // 
 
   // Extract the twitter list id from the query string
   const url = new URL(req.url);
